@@ -439,7 +439,7 @@
         event = event.originalEvent || event;
 
         var newTarget = document.elementFromPoint(event.clientX, event.clientY);
-        if (listNode.contains(newTarget) && !event._dndPhShown) {
+        if (!event._dndPhShown && listNode.contains(newTarget) && !newTarget.getAttribute('dnd-list')) {
           // Signalize to potential parent lists that a placeholder is already shown.
           event._dndPhShown = true;
         } else {
